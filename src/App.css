@@ -32,7 +32,25 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.Header {
+  padding: 20px;
+  display: "flex";
+  flex-direction: "row";
+  flex-wrap: "wrap";
+  justify-content: "space-between";
+  align-items: "center"
+}
+
+.Nav{
+  display: "flex";
+  flex-direction: "row";
+  flex-wrap: "wrap";
+  justify-content: "space-between";
+  align-items: "center"
 }

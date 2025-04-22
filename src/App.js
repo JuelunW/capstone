@@ -3,9 +3,11 @@ import './App.css';
 function App() {
   return (
     <>
-      <header>
-        <img src="../public/images/Logo.jpg" alt="Logo" />
-        <nav>
+      <header className='Header'>
+        <img src="/images/Logo.jpg" alt="Logo" width={200}/>
+        <nav className='Nav'>
+          <p>didididi</p>
+          <p>didididi</p>
           <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#menu">Menu</a>
