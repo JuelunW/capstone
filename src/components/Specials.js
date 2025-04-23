@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+/*
 const src = [
     {
         image: '/images/special1.jpg',
@@ -16,7 +16,7 @@ const src = [
 
 const card = () => {
 
-};
+};*/
 
 const Specials = () => {
     return (
