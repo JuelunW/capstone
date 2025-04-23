@@ -12,10 +12,12 @@ const Button = ({ text, onClick }) => {
 
 const Content = ({ children }) => {
     return (
-        <div width={20}>
-            <h1>Little Lemon</h1>
-            <h2>Chicago</h2>
-            <p>We are a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist. Little Lemon is a family-owned Mediterranean restaurant located in Chicago, Illinois. We focus on traditional recipes served with a modern twist.</p>
+        <div className="hero-content">
+            <div>
+                <h1>Little Lemon</h1>
+                <h2>Chicago</h2>
+            </div>
+            <p>We are a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist. </p>
             {children}
         </div>
     );
@@ -23,15 +25,15 @@ const Content = ({ children }) => {
 
 const Img = () => {
     return (
-        <div className="img">
-            <img src="/images/restaurantfood.jpg" alt="Restaurant food" width={200} />
+        <div className="hero-image-container">
+            <img src="/images/restaurantfood.jpg" alt="Restaurant food" className="hero-image" />
         </div>
     );
 };
 
 const Hero = () => {
     return (
-        <div className="Hero">
+        <div className="hero">
             <Content>
                 <Button text="Reserve a Table" onClick={() => {
                     alert('Reservation made!');
