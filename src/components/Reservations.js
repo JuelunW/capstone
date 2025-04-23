@@ -1,7 +1,7 @@
 //import React from 'react';
 
 const Reservations = () => {
-    return null;
+    return <p>reservations</p>;
 }
 
 export default Reservations;

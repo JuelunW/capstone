@@ -1,6 +1,7 @@
 import './App.css';
 import Header from './components/Header';
 import Main from './components/Main';
+import Login from './components/Login';
 import Reservations from './components/Reservation';
 import Menu from './components/Menu';
 import Footer from './components/Footer';
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/reservations" element={<Reservations />} />
         <Route path="/menu" element={<Menu />} />
       </Routes>
