@@ -5,25 +5,25 @@ import { Link } from 'react-router-dom';
 
 const Nav = () => {
     return (
-        <nav className='Nav'>
+        <nav className="nav">
             <Link to="/">Home</Link>
-            <a href="/#about">About</a>
-            <Link to="/menu">Menu</Link>
-            <Link to="/reservations">Reservations</Link>
-            <a href="#online order">Online order</a>
+            <a href="/#about" style={{padding: "0 5px"}}>About</a>
+            <Link to="/menu" style={{padding: "0 5px"}}>Menu</Link>
+            <Link to="/reservations" style={{padding: "0 5px"}}>Reservations</Link>
+            <a href="#online order" style={{whiteSpace: "nowrap"}}>Online order</a>
         </nav>
     );
 };
 
 const Logo = () => {
     return (
-        <img src="/images/Logo.jpg" alt="Logo" width={200} />
+        <img src="/images/Logo-s.jpg" alt="Logo" className="logo" />
     );
 };
 
 const Header = () => {
     return (
-        <div className='Header'>
+        <div className='header'>
             <Logo />
             <Nav />
         </div>
