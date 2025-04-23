@@ -1,8 +1,8 @@
 import './App.css';
 import Header from './components/Header';
-import Main from './components/Main';
+import Home from './components/Home';
 import Login from './components/Login';
-import Reservations from './components/Reservation';
+import Reservations from './components/Reservations';
 import Menu from './components/Menu';
 import Footer from './components/Footer';
 import React from 'react';
@@ -13,7 +13,7 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/reservations" element={<Reservations />} />
         <Route path="/menu" element={<Menu />} />

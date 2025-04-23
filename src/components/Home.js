@@ -4,7 +4,7 @@ import Specials from './Specials';
 import Testimonials from './Testimonials';
 import About from './About';
 
-const Main = () => {
+const Home = () => {
     return (
         <>
             <Hero />
@@ -15,4 +15,4 @@ const Main = () => {
     );
 };
 
-export default Main;
+export default Home;

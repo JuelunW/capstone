@@ -7,11 +7,10 @@ const Nav = () => {
     return (
         <nav className='Nav'>
             <Link to="/">Home</Link>
-            <a href="#about">About</a>
-            <a href="#menu">Menu</a>
+            <a href="/#about">About</a>
+            <Link to="/menu">Menu</Link>
             <Link to="/reservations">Reservations</Link>
             <a href="#online order">Online order</a>
-            <a href="/login">Login</a>
         </nav>
     );
 };
