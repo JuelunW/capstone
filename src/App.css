@@ -1,3 +1,31 @@
+/* reset.css */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* set the mutual styles */
+h1 {
+  font-family: 'Markazi Text';
+  font-weight: medium;
+  font-size: 64px;
+}
+
+.btn {
+  background-color: #F4CE14;
+  color: #333333;
+  font: Karla;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+}
+
+
+/* For Header */
 .header {
   font-size: 1rem;
 
@@ -29,6 +57,8 @@
   align-items: center;
 }
 
+
+/* For Hero section */
 .hero {
   background: #495e57;
   padding: 50px 0px;
@@ -51,10 +81,6 @@
 }
 
 .hero-content h1 {
-  margin: 0px;
-  font-family: 'Markazi Text';
-  font-weight: medium;
-  font-size: 64px;
   color: #F4CE14;
 }
 
@@ -67,24 +93,12 @@
 
 .hero-content p {
   margin: 0px;
-  max-width:400px;
+  max-width: 400px;
   font: Karla;
   font-size: 18px;
   font-weight: medium;
   color: #EDEFEE;
   line-height: 1.5;
-}
-
-.hero-content .btn {
-  background-color: #F4CE14;
-  color: #333333;
-  font: Karla;
-  font-weight: bold ;
-  font-size: 20px;
-  padding: 10px 20px;
-  border-radius: 38px;
-  border: none;
-  cursor: pointer;
 }
 
 .hero-image-container {
@@ -98,4 +112,279 @@
   max-height: 40vh;
   object-fit: contain;
   border-radius: 38px;
+}
+
+
+/* For Specials section */
+.specials {
+  padding: 50px 0px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  justify-items: stretch;
+  align-items: center;
+  row-gap: 50px;
+}
+
+.specials-header {
+  grid-column: 3/ 11;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.specials-header h1 {
+  color: #333333;
+}
+
+.specials-cards {
+  grid-column: 3/ 11;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.specials-card {
+  margin: 10px;
+  background: #e2e2e2;
+  border-radius: 20px 20px 0px 0px;
+  width: 250px;
+  height: 440px;
+  white-space: nowrap;
+}
+
+.specials-card-image {
+  width: 100%;
+  height: 170px;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.specials-card-container {
+  padding: 30px 20px;
+  height: 47%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.specials-card-container .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.specials-card-container .title h2 {
+  font-family: 'Markazi Text';
+  font-weight: medium;
+  font-size: 24px;
+  color: #333333;
+}
+
+.specials-card-container .title p {
+  font: 'Karla';
+  font-weight: bold;
+  font-size: 16px;
+  color: #ee9972;
+}
+
+.specials-card-container .description {
+  font: 'Karla';
+  font-size: 16px;
+  color: #495e57;
+  white-space: normal;
+}
+
+.specials-card-container .final {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.specials-card-container .final p {
+  color: #333333;
+  font: Karla;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+
+/* For Testimonials section */
+.testimonials {
+  padding: 50px 0px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  justify-items: stretch;
+  row-gap: 50px;
+}
+
+.testimonials h1 {
+  grid-column: 3/ 11;
+  justify-self: center;
+}
+
+.testimonials .left-arrow {
+  grid-column: 2/ 3;
+  justify-self: center;
+  align-self: center;
+}
+
+.testimonials .right-arrow {
+  grid-column: 11/ 12;
+  justify-self: center;
+  align-self: center;
+}
+
+.testimonials .container {
+  grid-column: 3/ 11;
+  height: 250px;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  /* Optional: Add spacing between items */
+  gap: 40px;
+}
+
+.rolling-card {
+  background: #fbdfd4;
+  border-radius: 10px;
+  min-width: 65vw;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  justify-items: center;
+  align-items: center;
+}
+
+.rolling-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.rolling-card .name {
+  font: Karla;
+  font-weight: bold;
+  font-size: 18px;
+  color: #333333;
+}
+
+.rolling-card .comment {
+  font: Karla;
+  font-weight: 450;
+  font-style: italic;
+  font-size: 16px;
+  color: #333333;
+}
+
+/* For About section */
+.about {
+  padding: 50px 0px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  justify-items: stretch;
+  row-gap: 50px;
+}
+
+
+.about-container {
+  grid-column: 3/ 6;
+  max-height: 400px;
+  height: calc(600px - 20vw);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.about-container h1 {
+  color: #333333;
+}
+
+.about-content p {
+  margin: 0px;
+  max-width: 400px;
+  font: Karla;
+  font-size: 18px;
+  font-weight: medium;
+  color: #333333;
+  line-height: 1.5;
+}
+
+.about-image-container {
+  grid-column: 7/ 11;
+  align-self: center;
+}
+
+.about-image {
+  width: 100%;
+  min-width: 200px;
+  object-fit: cover;
+  border-radius: 38px;
+
+}
+
+/* For Footer */
+.footer {
+  background: #495e57;
+  color:#EDEFEE;
+  padding: 20px 0px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas:
+    ". . logo logo nav nav social social contact contact . .";
+  justify-items: start;
+  column-gap: 20px;
+}
+
+.footer-logo-container {
+  grid-area: logo;
+}
+
+.footer-logo {
+  width: 60%
+}
+
+.footer-nav {
+  padding-top: 20px;
+  grid-area: nav;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.footer-social {
+  padding-top: 20px;
+  grid-area: social;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.footer-contact {
+  padding-top: 20px;
+  grid-area: contact;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.footer-contact p {
+  text-wrap: nowrap;
+}
+
+.footer > p {
+  grid-column: 3/ 11;
+  justify-self: center;
 }
