@@ -1,46 +1,28 @@
 import React from 'react';
 import '../App.css';
-
-
-const Button = ({ text, onClick }) => {
-    return (
-        <button className="btn" onClick={onClick}>
-            {text}
-        </button>
-    );
-};
+import { Link } from 'react-router-dom'
 
 const Content = ({ children }) => {
     return (
-        <div className="hero-content">
-            <div>
+        <article className="hero-content">
+            <header>
                 <h1>Little Lemon</h1>
                 <h2>Chicago</h2>
-            </div>
+            </header>
             <p>We are a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist. </p>
             {children}
-        </div>
-    );
-};
-
-const Img = () => {
-    return (
-        <div className="hero-image-container">
-            <img src="/images/restaurantfood.jpg" alt="Restaurant food" className="hero-image" />
-        </div>
+        </article>
     );
 };
 
 const Hero = () => {
     return (
-        <div className="hero">
+        <main className="hero">
             <Content>
-                <Button text="Reserve a Table" onClick={() => {
-                    alert('Reservation made!');
-                }} />
+                <Link to="/reservations" className="btn">Reserve a Table</Link>
             </Content>
-            <Img />
-        </div>
+            <img src="/images/restaurantfood.jpg" alt="Restaurant food" className="hero-image" />
+        </main>
     );
 }
 export default Hero;

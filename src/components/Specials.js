@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+import { Link } from 'react-router-dom'
 
 
 const specials = [
@@ -23,43 +24,42 @@ const specials = [
     },
 ];
 
-const Cards = (props) => {
-    const card = props.data.map(({ image, title, price, description }) => {
-        return (
-            <div className="specials-card" >
-                <img src={image} alt={title} className='specials-card-image' />
-                <div className="specials-card-container">
-                    <div className="title">
-                        <h2>{title}</h2>
-                        <p>{price}</p>
-                    </div>
-                    <p className="description" >{description}</p>
-                    <div className="final">
-                        <p>Order a delivery</p>
-                        <img src="/images/bicycle.jpg" alt="bicycle" style={{ width: "20px" }} />
-                    </div>
-                </div>
-            </div>
-        );
-    }
-    );
-
+const card = specials.map(({ image, title, price, description }) => {
     return (
-        <div className="specials-cards">
+        <section className="specials-card" >
+            <img src={image} alt={title} className='specials-card-image' />
+            <article className="specials-card-container">
+                <header className="title">
+                    <h2>{title}</h2>
+                    <p>{price}</p>
+                </header>
+                <p className="description" >{description}</p>
+                <footer className="final">
+                    <p>Order a delivery</p>
+                    <img src="/images/bicycle.jpg" alt="bicycle" style={{ width: "20px" }} />
+                </footer>
+            </article>
+        </section>
+    );
+});
+
+const Cards = () => {
+    return (
+        <article className="specials-cards">
             {card}
-        </div>
+        </article>
     );
 };
 
 const Specials = () => {
     return (
-        <div className="specials" id="specials">
-            <div className="specials-header">
+        <main className="specials" id="specials">
+            <header className="specials-header">
                 <h1>Specials</h1>
-                <button className="btn" onClick={() => { }}>Online Menu</button>
-            </div>
-            <Cards data={specials} />
-        </div>
+                <Link to="/menu" className="btn">Online Menu</Link>
+            </header>
+            <Cards />
+        </main>
     );
 }
 export default Specials;

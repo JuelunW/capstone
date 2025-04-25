@@ -4,12 +4,27 @@
   padding: 0;
 }
 
+a {
+  text-decoration-line: none;
+  padding: 0 5px;
+  color: #333333;
+  font: Karla;
+  font-weight: bold;
+  font-size: 18px;
+}
 
-/* set the mutual styles */
+a:hover {
+  text-decoration-line: underline;
+}
+
 h1 {
   font-family: 'Markazi Text';
   font-weight: medium;
   font-size: 64px;
+}
+
+p {
+  line-height: 1.5;
 }
 
 .btn {
@@ -24,6 +39,28 @@ h1 {
   cursor: pointer;
 }
 
+.btn:disabled {
+  background: #f4cf1480;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+label {
+  margin: 10px;
+  font: Karla;
+  font-weight: bold;
+  font-size: 16px;
+  color: #333333;
+}
+
+.input {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  border: none;
+  font: Karla;
+  font-size: 16px;
+}
 
 /* For Header */
 .header {
@@ -44,9 +81,6 @@ h1 {
 
 .header .nav {
   padding: 10px 20px;
-  font: Karla;
-  font-weight: bold;
-  font-size: 18px;
   width: 60vw;
   min-width: 300px;
   max-width: 600px;
@@ -56,7 +90,6 @@ h1 {
   justify-content: space-between;
   align-items: center;
 }
-
 
 /* For Hero section */
 .hero {
@@ -71,9 +104,10 @@ h1 {
 
 .hero-content {
   grid-column: 3/ span 4;
-  max-height: 400px;
-  height: calc(600px - 20vw);
-
+  max-height: 450px;
+  height: calc(570px - 15vw);
+  min-height: 350px;
+  justify-self: start;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -101,19 +135,14 @@ h1 {
   line-height: 1.5;
 }
 
-.hero-image-container {
-  background: #495e57;
-  grid-column: 8/ 12;
-  display: flex;
-}
-
 .hero-image {
+  grid-column: 8/ 12;
+  width: 100%;
   min-width: 150px;
-  max-height: 40vh;
+  max-width: 230px;
   object-fit: contain;
   border-radius: 38px;
 }
-
 
 /* For Specials section */
 .specials {
@@ -135,10 +164,6 @@ h1 {
   align-items: center;
 }
 
-.specials-header h1 {
-  color: #333333;
-}
-
 .specials-cards {
   grid-column: 3/ 11;
   display: flex;
@@ -146,15 +171,13 @@ h1 {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
 }
 
 .specials-card {
-  margin: 10px;
   background: #e2e2e2;
   border-radius: 20px 20px 0px 0px;
-  width: 250px;
-  height: 440px;
-  white-space: nowrap;
+  width: 240px;
 }
 
 .specials-card-image {
@@ -165,7 +188,7 @@ h1 {
 
 .specials-card-container {
   padding: 30px 20px;
-  height: 47%;
+  height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -215,7 +238,6 @@ h1 {
   font-weight: bold;
   font-size: 16px;
 }
-
 
 /* For Testimonials section */
 .testimonials {
@@ -275,7 +297,6 @@ h1 {
   font: Karla;
   font-weight: bold;
   font-size: 18px;
-  color: #333333;
 }
 
 .rolling-card .comment {
@@ -283,7 +304,6 @@ h1 {
   font-weight: 450;
   font-style: italic;
   font-size: 16px;
-  color: #333333;
 }
 
 /* For About section */
@@ -294,7 +314,6 @@ h1 {
   justify-items: stretch;
   row-gap: 50px;
 }
-
 
 .about-container {
   grid-column: 3/ 6;
@@ -308,83 +327,137 @@ h1 {
 }
 
 .about-container h1 {
-  color: #333333;
-}
-
-.about-content p {
-  margin: 0px;
-  max-width: 400px;
-  font: Karla;
-  font-size: 18px;
-  font-weight: medium;
-  color: #333333;
-  line-height: 1.5;
-}
-
-.about-image-container {
-  grid-column: 7/ 11;
-  align-self: center;
+  text-wrap: nowrap;
 }
 
 .about-image {
-  width: 100%;
+  grid-column: 7/ 11;
+  align-self: center;
   min-width: 200px;
   object-fit: cover;
   border-radius: 38px;
-
 }
 
 /* For Footer */
 .footer {
   background: #495e57;
-  color:#EDEFEE;
-  padding: 20px 0px;
+  color: #EDEFEE;
+  padding: 40px 0px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-areas:
-    ". . logo logo nav nav social social contact contact . .";
-  justify-items: start;
+    ". . logo logo nav nav social social contact contact . ."
+    ". . logo logo copyright copyright copyright copyright copyright copyright . .";
+  justify-items: stretch;
   column-gap: 20px;
 }
 
-.footer-logo-container {
-  grid-area: logo;
-}
-
 .footer-logo {
-  width: 60%
+  grid-area: logo;
+  width: 80%;
+  min-height: 100px;
+  max-height: 200px;
+  object-fit: contain;
+  padding: 15px 0;
+  background-color: #EDEFEE;
 }
 
 .footer-nav {
-  padding-top: 20px;
   grid-area: nav;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
+  align-items: stretch;
+  gap: 20px;
 }
+
+.footer-nav a {
+  color: #EDEFEE;
+  font-weight: 500;
+}
+
 .footer-social {
-  padding-top: 20px;
   grid-area: social;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
+  gap: 20px;
+}
+
+.footer-social a {
+  color: #EDEFEE;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
   gap: 10px;
 }
+
+.footer-social img {
+  width: 30px;
+  height: 30px;
+}
+
+.footer-social figcaption {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .footer-contact {
-  padding-top: 20px;
   grid-area: contact;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
+  align-items: stretch;
+  gap: 15px;
 }
 
 .footer-contact p {
-  text-wrap: nowrap;
+  font: Karla;
+  font-size: 18px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.footer > p {
-  grid-column: 3/ 11;
+.footer>p {
+  grid-area: copyright;
   justify-self: center;
+  align-self: center;
+}
+
+/* Reservations */
+.reservations {
+  padding: 50px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+}
+
+.reservation-form {
+  width: 50vw;
+  min-width: 200px;
+  max-width: 500px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.reservation-form .date-time {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.reservation-form .btn {
+  margin-top: 30px;
 }

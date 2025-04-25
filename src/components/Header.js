@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Nav = () => {
     return (
         <nav className="nav">
-            <Link to="/" style={{padding: "0 5px"}}>Home</Link>
+            <Link to="/">Home</Link>
             <a href="/#about" style={{padding: "0 5px"}}>About</a>
             <Link to="/menu" style={{padding: "0 5px"}}>Menu</Link>
             <Link to="/reservations" style={{padding: "0 5px"}}>Reservations</Link>
@@ -23,10 +23,10 @@ const Logo = () => {
 
 const Header = () => {
     return (
-        <div className='header'>
+        <main className='header'>
             <Logo />
             <Nav />
-        </div>
+        </main>
     );
 };
 
