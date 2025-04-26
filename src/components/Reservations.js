@@ -1,6 +1,22 @@
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
 
-const BookingForm = () => {
+const reducer = (state, action) => {
+    switch (action.type) {
+        case true:
+            return {
+                ...state
+            };
+        case false:
+            return {
+                ...state,
+                lunch: []
+            };
+        default:
+            throw new Error(`Unknown action: ${action.type}`);
+    }
+};
+
+const BookingForm = ({ availableTimes, updateTimes }) => {
     const [finished, setFinished] = useState(false);
 
     const [info, setInfo] = useState({
@@ -20,15 +36,6 @@ const BookingForm = () => {
         })
         info.name && info.email && info.date && info.time && info.guests && setFinished(true)
     };
-
-
-    const availableLunch = [
-        '11:00', '12:00', '13:00'
-    ];
-
-    const availableDinner = [
-        '17:00', '18:00', '19:00', '20:00'
-    ];
 
     const clickHandler = (e) => {
         e.preventDefault();
@@ -50,32 +57,36 @@ const BookingForm = () => {
             <input type="text" id='name' name="name" value={info.name} onChange={handleChange} placeholder='What can we call you' className='input' required />
             <label htmlFor="email">Your email</label>
             <input type="email" id="email" name="email" value={info.email} onChange={handleChange} placeholder='abcde@email.com' className='input' required />
-            <div className="date-time">
+            <section className="date-time">
                 <label htmlFor="date">Date</label>
                 <input type="date" id="date" name="date" value={info.date} className='input' required
                     onChange={(e) => {
                         const selectedDate = new Date(e.target.value);
                         const today = new Date();
-                        //today.setHours(0, 0, 0, 0); // Reset time to midnight
-                        selectedDate >= today ? handleChange(e)
-                            : alert("Oops, it seems like you selected a past date.\n Please select today or the day after today.")
+                        today.setHours(0, 0, 0, 0); // Reset time to midnight
+                        if (selectedDate >= today) {
+                            handleChange(e);
+                            updateTimes(selectedDate);
+                        } else {
+                            alert("Oops, it seems like you selected a past date.\nPlease select today or a future date.");
+                        }
                     }}
                 />
                 <label htmlFor="time">Time</label>
                 <select id="time" name="time" className='input' value={info.time} onChange={handleChange} required>
                     <option value="" disabled>Select a time</option>
                     <optgroup label="Lunch">
-                        {availableLunch.map((time, index) => (
+                        {availableTimes.lunch.map((time, index) => (
                             <option key={index} value={time}>{time}</option>
                         ))}
                     </optgroup>
                     <optgroup label="Dinner">
-                        {availableDinner.map((time, index) => (
+                        {availableTimes.dinner.map((time, index) => (
                             <option key={index} value={time}>{time}</option>
                         ))}
                     </optgroup>
                 </select>
-            </div>
+            </section>
             <label htmlFor="occasion">Occasion</label>
             <select id="occasion" name="occasion" className='input' value={info.occasion} onChange={handleChange}>
                 <option value="">None</option>
@@ -92,10 +103,25 @@ const BookingForm = () => {
 };
 
 const Reservations = () => {
+    const initializeTimes = () => {
+        return ({
+            lunch: ['11:00', '12:00', '13:00'],
+            dinner: ['17:00', '18:00', '19:00', '20:00']
+        })
+    };
+    const initailArg = {};
+    const [availableTimes, dispatch] = useReducer(reducer, initailArg, initializeTimes);
+
+    const updateTimes = (selectedDate) => {
+        const dayOfWeek = selectedDate.getDay();
+        const isWeekend = dayOfWeek === 0 || dayOfWeek === 6; // Sunday or Saturday
+        dispatch({ type: isWeekend });
+    };
+
     return (
         <main className="reservations">
             <h1>Reservations</h1>
-            <BookingForm />
+            <BookingForm availableTimes={availableTimes} updateTimes={updateTimes} />
         </main>
     );
 }
