@@ -5,18 +5,21 @@ import { Link } from 'react-router-dom'
 
 const specials = [
     {
+        id: 1,
         image: '/images/Greek salad-s.jpg',
         title: 'Greek Salad',
         price: "$12.99",
         description: 'The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.',
     },
     {
+        id: 2,
         image: '/images/Bruchetta-s.jpg',
         title: 'Bruchetta',
         price: "$5.99",
         description: 'Our Bruchetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.',
     },
     {
+        id: 3,
         image: '/images/lemon dessert.jpg',
         title: 'Lemon Dessert',
         price: "$5.00",
@@ -24,9 +27,9 @@ const specials = [
     },
 ];
 
-const card = specials.map(({ image, title, price, description }) => {
+const card = specials.map(({ id, image, title, price, description }) => {
     return (
-        <section className="specials-card" >
+        <section className="specials-card" key={id} >
             <img src={image} alt={title} className='specials-card-image' />
             <article className="specials-card-container">
                 <header className="title">

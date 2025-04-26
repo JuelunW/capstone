@@ -347,7 +347,7 @@ label {
   grid-template-columns: repeat(12, 1fr);
   grid-template-areas:
     ". . logo logo nav nav social social contact contact . ."
-    ". . logo logo copyright copyright copyright copyright copyright copyright . .";
+    ". . logo logo copyright copyright copyright copyright . . . .";
   justify-items: stretch;
   column-gap: 20px;
 }
@@ -460,4 +460,14 @@ label {
 
 .reservation-form .btn {
   margin-top: 30px;
+}
+
+/* For ConfirmedBooking section */
+.confirmed {
+  padding: 50px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-items: stretch;
+  align-items: center;
+  row-gap: 50px;
 }

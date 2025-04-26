@@ -1,4 +1,5 @@
 import { useReducer, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -15,6 +16,9 @@ const reducer = (state, action) => {
             throw new Error(`Unknown action: ${action.type}`);
     }
 };
+
+const today = new Date();
+today.setHours(0, 0, 0, 0); // Reset time to midnight
 
 const BookingForm = ({ availableTimes, updateTimes }) => {
     const [finished, setFinished] = useState(false);
@@ -37,7 +41,7 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
         info.name && info.email && info.date && info.time && info.guests && setFinished(true)
     };
 
-    const clickHandler = (e) => {
+    const submit = (e) => {
         e.preventDefault();
         setInfo({
             name: '',
@@ -48,11 +52,14 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
             guests: '',
         });
         setFinished(false);
-        alert(`Reserve successfully.`);
+
+        navigate('/confirmation');
     };
 
+    const navigate = useNavigate();
+
     return (
-        <form className="reservation-form">
+        <form className="reservation-form" method="POST">
             <label htmlFor="name">Your name</label>
             <input type="text" id='name' name="name" value={info.name} onChange={handleChange} placeholder='What can we call you' className='input' required />
             <label htmlFor="email">Your email</label>
@@ -62,8 +69,6 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
                 <input type="date" id="date" name="date" value={info.date} className='input' required
                     onChange={(e) => {
                         const selectedDate = new Date(e.target.value);
-                        const today = new Date();
-                        today.setHours(0, 0, 0, 0); // Reset time to midnight
                         if (selectedDate >= today) {
                             handleChange(e);
                             updateTimes(selectedDate);
@@ -97,20 +102,32 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
             </select>
             <label htmlFor="guests">Number of Guests</label>
             <input type="number" id="guests" name="guests" min="1" max="20" value={info.guests} onChange={handleChange} placeholder='size of your party' className='input' required />
-            <button type="submit" className='btn' disabled={!finished} onClick={clickHandler}>Reserve</button>
+            <button type="submit" className='btn' disabled={!finished} onClick={submit}>Reserve</button>
         </form>
     );
 };
 
 const Reservations = () => {
-    const initializeTimes = () => {
-        return ({
-            lunch: ['11:00', '12:00', '13:00'],
-            dinner: ['17:00', '18:00', '19:00', '20:00']
-        })
+    const fetchData = (date) => {
+        try {
+            let time = fetch(date).then((response) => response.json());// should be an array of times
+            const lunch = time.filter((time) => time < '15:00');
+            const dinner = time.filter((time) => time >= '15:00');
+            return {
+                lunch: lunch,
+                dinner: dinner,
+            };
+        } catch (error) {
+            console.error(error);
+            return {
+                lunch: ['11:00', '12:00', '13:00'], // Fallback values in case of error
+                dinner: ['17:00', '18:00', '19:00', '20:00'], // Fallback values in case of error
+            };
+        }
     };
-    const initailArg = {};
-    const [availableTimes, dispatch] = useReducer(reducer, initailArg, initializeTimes);
+
+
+    const [state, dispatch] = useReducer(reducer, today, fetchData);
 
     const updateTimes = (selectedDate) => {
         const dayOfWeek = selectedDate.getDay();
@@ -121,7 +138,7 @@ const Reservations = () => {
     return (
         <main className="reservations">
             <h1>Reservations</h1>
-            <BookingForm availableTimes={availableTimes} updateTimes={updateTimes} />
+            <BookingForm availableTimes={state} updateTimes={updateTimes} />
         </main>
     );
 }

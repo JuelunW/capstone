@@ -2,6 +2,7 @@ import './App.css';
 import Header from './components/Header';
 import Home from './components/Home';
 import Reservations from './components/Reservations';
+import ConfirmedBooking from './components/ConfirmedBooking';
 import Menu from './components/Menu';
 import Footer from './components/Footer';
 import React from 'react';
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/reservations" element={<Reservations />} />
+        <Route path="/confirmation" element={<ConfirmedBooking />} />
         <Route path="/menu" element={<Menu />} />
       </Routes>
       <Footer />

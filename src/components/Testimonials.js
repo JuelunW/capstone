@@ -32,9 +32,9 @@ const data = [
   },
 ];
 
-const rollingCard = data.map(({ name, image, stars, comment }) => {
+const rollingCard = data.map(({ id, name, image, stars, comment }) => {
   return (
-    <section className="rolling-card">
+    <section className="rolling-card" key={id}>
       <img src={image} alt="Client" />
       <p className="name">{name}</p>
       <p className="stars">{stars}</p>

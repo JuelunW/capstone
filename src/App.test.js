@@ -1,15 +1,15 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Reservations from './components/Reservations';
-/*
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
-*/
-test('Renders the BookingForm heading', () => {
-    render(<Reservations />);
-    const headingElement = screen.getByText("Reservations");
-    expect(headingElement).toBeInTheDocument();
+
+test('select a date', () => {
+  render(<Reservations />);
+
+  // Get the Date input element
+  const dateInput = screen.getByLabelText("Date");
+
+  // Simulate selecting a date
+  fireEvent.select(dateInput, { target: { value: '2025-05-01' } });
+
+  // Assert that the date input has the correct value
+  expect(dateInput).toHaveValue('2025-05-01');
 })
